@@ -1,0 +1,44 @@
+1. Dada uma variável 'a' do tipo 'char' (um byte), escreva os trechos de código em C para:
+	(a) Somente setar o bit menos significativo de 'a'.
+	a |= 1;
+	(b) Somente setar dois bits de 'a': o menos significativo e o segundo menos significativo.
+	a |= 3;
+	(c) Somente zerar o terceiro bit menos significativo de 'a'.
+	a &= ~(4);
+	(d) Somente zerar o terceiro e o quarto bits menos significativo de 'a'.
+	a &= ~(12);
+	(e) Somente inverter o bit mais significativo de 'a'.
+	a &= ~(0x80);
+	(f) Inverter o nibble mais significativo de 'a', e setar o nibble menos significativo de 'a'. 
+	a &= ~(0xF0);
+	a |= (0x0F);
+
+2. Considerando a placa Launchpad do MSP430, escreva o código em C para piscar os dois LEDs ininterruptamente.
+
+#include <msp430x11x1.h> // Specific device
+// Pins for LEDs
+#define LED1 BIT3
+#define LED2 BIT4
+// Iterations of delay loop; reduce for simulation
+#define DELAYLOOPS 50000
+void main (void)
+{
+volatile unsigned int LoopCtr; // Loop counter: volatile!
+WDTCTL = WDTPW | WDTHOLD; // Stop watchdog timer
+
+P2OUT = (˜LED1 | ~LED2); // Preload LED1 on , LED2 off
+P2DIR = LED1|LED2; // Set pins with LED1 ,2 to output
+for (;;) { // Loop forever
+for (LoopCtr = 0; LoopCtr < DELAYLOOPS; ++ LoopCtr) {
+} // Empty delay loop
+P2OUT ˆ= LED1|LED2; // 
+}
+}
+
+3. Considerando a placa Launchpad do MSP430, escreva o código em C para piscar duas vezes os dois LEDs sempre que o usuário pressionar o botão.
+	
+4. Considerando a placa Launchpad do MSP430, faça uma função em C que pisca os dois LEDs uma vez.
+
+5. Reescreva o código da questão 2 usando a função da questão 4.
+
+6. Reescreva o código da questão 3 usando a função da questão 4.
