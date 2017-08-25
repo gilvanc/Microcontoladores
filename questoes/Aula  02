@@ -1,0 +1,24 @@
+1 - 
+Barramento é um canal de comunicação interna. O de endereços pode ter mais bits do que o de dados, que por sua vez, tem leitura e escrita.
+
+2 - 
+RAM (random-access memory), é aleatória por se poder ler qualquer endereço(fora de ordem) e é volátil, enquanto que a ROM, não. No caso da RAM, funciona como uma memória estática (fica com mesma memoria, mesmo com a parada do clock para economizar energia).
+
+3- 
+a)A variável 'i' é amazenada  na memória RAM, pois o é feito apenas um calculo com ela, verificação do 'resto', linha 7, e então o resultado importante é o resto. 
+b)O códgiigo é armazenado em memória ROM, pois é necessário armazenar mesmo após o desligamento.
+ 
+4 - 
+A arquitetura de Von Neuman é mais lenta por tem que aguardar o processamento de uma intrução completar-se para executar outro comando. Enquanto Havard tem dois canais de comunicação.
+
+5- 0x8051ABCD a partir do endereço 0x0200
+Little-endian ordering: The low-order byte is stored at the lower address and the
+high-order byte at the higher address. This is used by the MSP430 and is the more
+common format.
+Big-endian ordering: The high-order byte is stored at the lower address. This is used
+by the Freescale HCS08, for instance.
+a) CD-0x200 AB-0x202 41-0x204 80-0x206
+b) 80-0x200 41-0x202 AB-0x204 CD-0x206
+
+6- 
+Separando as palavras de 32 bits em palavras de 16 para fazer a operação em duas etapas, sendo que a primeira com bits menos significativos teria que guardar um possível carry de informação.
