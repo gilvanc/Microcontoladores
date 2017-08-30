@@ -1,0 +1,26 @@
+int add (int a, int b)
+{
+	return a+b;
+}
+
+int main ()
+{
+	int x= addint(2,3);
+	int y= addint(x,10);
+
+	return 0;
+}
+
+assembly:
+
+mov.w #2, R15
+mov.w #3, R14
+call #addint
+mov.w R15, R4
+mov.w #10, R14
+call #addint
+mov.w R15, R5
+
+addint: 
+add.w R14, 15
+ret
