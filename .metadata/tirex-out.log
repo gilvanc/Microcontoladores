@@ -1,0 +1,10 @@
+-----TI-REX started at Mon Sep 18 2017 09:04:40 GMT-0300 (Hora oficial do Brasil)
+Mon, 18 Sep 2017 12:04:55 GMT connect deprecated methodOverride: use method-override npm module instead at app.js:488:21
+,
+        "family": "IPv4",
+        "mac": "00:50:56:c0:00:01",
+        "internal": false
+    }
+]
+-----TI-REX started at Mon Sep 18 2017 09:04:40 GMT-0300 (Hora oficial do Brasil)
+TIREX server listening on port 51030

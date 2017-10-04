@@ -14,8 +14,23 @@ init:   MOV     #SFE(CSTACK), SP        ; set up stack
 
 main:   NOP                             ; main program
         MOV.W   #WDTPW+WDTHOLD,&WDTCTL  ; Stop watchdog timer
-        MOV.W   #01000001b, &P1OUT
-        MOV.W   #01000001b, &P1DIR
+	mov.w	#2, R14
+	mov.w	#3, R15
+        call    #MULT_unsigned
         JMP $                           ; jump to current location '$'
                                         ; (endless loop)
+
+MULT_unsigned:
+        tst.w R14 ; b==0 ?
+	jnz MULT_unsigned_else ; Se b não é zero, vá para o else
+	clr.w R15 ; return 0
+	ret
+MULT_unsigned_else:
+	push.w R15 ; Guarde a na pilha
+	dec.w R14 ; b--
+	call #MULT_unsigned ; Calcule a*(b-1)
+	pop.w R14 ; Recupere a na pilha
+	add.w R14, R15 ; return a + a*(b-1)
+	ret
+
         END
