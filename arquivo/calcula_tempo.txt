@@ -1,0 +1,14 @@
+int timeup(int channel){
+  int counter = 0;                   // counter é iniciado como ZERO e fica assim até
+  int sinal = 0;                     // que o nível lógico mudar de LOW para HIGH.
+  while(counter == 0){               //  --> Nesse while ele aguarda o nível lógico alto. 
+    sinal = analogRead(channel);
+    while(sinal > 500){               //  --> Nesse outro ele conta, em proporção ao tempo,
+      sinal = analogRead(channel);    //      a partir do momento em que o nível lógico alto está ativo.
+      counter = counter + 1;
+      delayMicroseconds(1);
+    }
+  }
+  v
+  return counter;                     //Retorna o valor da contagem (proporcional ao tempo).
+}
